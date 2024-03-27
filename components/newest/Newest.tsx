@@ -3,6 +3,7 @@ import React from "react";
 import ProductCard from "../products/ProductCard";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+
 async function getNewest() {
 	const query = `*[_type=='product'] | order(_createdAt desc)[0...4]{
         'slug':slug.current,
