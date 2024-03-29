@@ -9,7 +9,7 @@ let priceFormat = new Intl.NumberFormat("en-US", {
 export default function ProductCard({
 	name,
 	price,
-	image,
+	mainImage,
 	slug,
 	category,
 }: simplifiedProduct) {
@@ -17,7 +17,7 @@ export default function ProductCard({
 		<div className="bg-secondary w-56 flex flex-col gap-y-5 px-4 py-4 rounded">
 			<Image
 				className="w-full h-44 rounded object-contain object-center"
-				src={urlFor(image).url()}
+				src={urlFor(mainImage).url()}
 				alt={name}
 				width={200}
 				height={200}

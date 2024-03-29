@@ -11,16 +11,28 @@ declare global {
 	interface simplifiedProduct {
 		name: string;
 		price: number;
-		image: string;
+		mainImage: string;
 		slug: string;
 		category: string;
 	}
-	type Product = {
+	interface Product {
 		id: UUID;
 		name: string;
+		description: string;
 		price: number;
-		image: string;
+		mainImage: string;
+		images: any;
 		slug: string;
 		category: string;
-	};
+	}
+
+	interface productImage {
+		_key: string;
+		asset: imageAsset;
+		_type: string;
+	}
+	interface imageAsset {
+		_ref: string;
+		_type: string;
+	}
 }

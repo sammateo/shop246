@@ -5,15 +5,16 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 async function getNewest() {
-	const query = `*[_type=='product'] | order(_createdAt desc)[0...4]{
-        'slug':slug.current,
-        "image":images[0].asset._ref,
-          price, 
-          description,
-          "category":category->name,
-          name,
-          "id": _id
-      }`;
+	const query = `*[_type=='product'] | order(_createdAt asc)[0...5]
+	{
+	  	'slug':slug.current,
+		"mainImage":mainImage.asset._ref,
+		price, 
+		description,
+		"category":category->name,
+		name,
+	"id": _id
+	}`;
 	const data = await sanityClient.fetch(query);
 	return data;
 }
@@ -34,7 +35,7 @@ export default async function Newest() {
 						key={product.id}
 						name={product.name}
 						price={product.price}
-						image={product.image}
+						mainImage={product.mainImage}
 						slug={product.slug}
 						category={product.category}
 					/>

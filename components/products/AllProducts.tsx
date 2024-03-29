@@ -4,15 +4,16 @@ import ProductCard from "./ProductCard";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 async function getProducts() {
-	const query = `*[_type=='product']{
-        'slug':slug.current,
-        "image":images[0].asset._ref,
-          price, 
-          description,
-          "category":category->name,
-          name,
-          "id": _id
-      }`;
+	const query = `*[_type=='product']
+	{
+		'slug':slug.current,
+		"mainImage":mainImage.asset._ref,
+		price, 
+		description,
+		"category":category->name,
+		name,
+	"id": _id
+	}`;
 	const data = await sanityClient.fetch(query);
 	return data;
 }
@@ -24,13 +25,13 @@ export default async function AllProducts() {
 			<div className="flex items-center justify-center">
 				<h2 className="text-2xl font-semibold">All Products</h2>
 			</div>
-			<div className="py-10 flex flex-wrap justify-start gap-4">
+			<div className="py-10 flex flex-wrap justify-center md:justify-start gap-4">
 				{products.map((product: Product) => (
 					<ProductCard
 						key={product.id}
 						name={product.name}
 						price={product.price}
-						image={product.image}
+						mainImage={product.mainImage}
 						slug={product.slug}
 						category={product.category}
 					/>
