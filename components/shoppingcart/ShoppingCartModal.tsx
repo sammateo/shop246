@@ -9,10 +9,13 @@ import { Trash } from "lucide-react";
 import Image from "next/image";
 import { useShoppingCart } from "use-shopping-cart";
 import { Button } from "../ui/button";
+import { ScrollArea } from "@/components/ui/scroll-area";
+
 let priceFormat = new Intl.NumberFormat("en-US", {
 	style: "currency",
 	currency: "USD",
 });
+
 export function ShoppingCartModal() {
 	const {
 		cartCount,
@@ -27,9 +30,14 @@ export function ShoppingCartModal() {
 			<SheetContent className="sm:max-w-lg w-[90vw]">
 				<SheetHeader>
 					<SheetTitle>Shopping Cart</SheetTitle>
+				</SheetHeader>
+
+				<ScrollArea className=" w-full h-full px-4">
 					<div>
 						{cartCount === 0 ? (
-							<h1>No items</h1>
+							<div className="flex justify-center">
+								<h1 className="text-xl">No items</h1>
+							</div>
 						) : (
 							<div className="">
 								<div className="">
@@ -91,7 +99,7 @@ export function ShoppingCartModal() {
 									</ul>
 								</div>
 
-								<div>
+								<div className="my-4">
 									<div className="flex justify-between items-center">
 										<p>Subtotal:</p>
 										<p>
@@ -105,7 +113,7 @@ export function ShoppingCartModal() {
 							</div>
 						)}
 					</div>
-				</SheetHeader>
+				</ScrollArea>
 			</SheetContent>
 		</Sheet>
 	);
