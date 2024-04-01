@@ -16,12 +16,12 @@ declare global {
 		category: string;
 	}
 	interface Product {
-		id: UUID;
+		id?: UUID;
 		name: string;
 		description: string;
 		price: number;
 		mainImage: string;
-		images: any;
+		images?: any;
 		slug: string;
 		category: string;
 	}

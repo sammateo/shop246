@@ -45,6 +45,7 @@ export default async function page({
 								mainImage={product.mainImage}
 								slug={product.slug}
 								category={product.category}
+								description={product.description}
 							/>
 						))}
 					</div>

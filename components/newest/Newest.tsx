@@ -38,6 +38,7 @@ export default async function Newest() {
 						mainImage={product.mainImage}
 						slug={product.slug}
 						category={product.category}
+						description={product.description}
 					/>
 				))}
 			</div>
