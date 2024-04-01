@@ -36,7 +36,12 @@ export default async function page({ params }: { params: { slug: string } }) {
 				<div className="px-4 md:px-20 grid md:grid-cols-2 gap-4">
 					<ProductImages images={productData.images} />
 					<div className="">
-						<p className="my-2">{productData?.category}</p>
+						<Link
+							href={`/category/${productData?.category}`}
+							className="my-2"
+						>
+							{productData?.category}
+						</Link>
 						<p className="text-2xl font-bold my-2">
 							{productData?.name}
 						</p>
