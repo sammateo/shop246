@@ -4,6 +4,7 @@ import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+export const revalidate = 30;
 async function getCategorytData(category: string) {
 	const query = `*[_type == "product" && lower(category->name) == lower("${category}")]
     {

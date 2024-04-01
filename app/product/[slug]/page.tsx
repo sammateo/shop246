@@ -6,6 +6,7 @@ import { ArrowLeft, Star, Truck } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+export const revalidate = 30;
 let priceFormat = new Intl.NumberFormat("en-US", {
 	style: "currency",
 	currency: "USD",
