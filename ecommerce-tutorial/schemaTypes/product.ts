@@ -9,6 +9,7 @@ export default {
     {name: 'description', type: 'text', title: 'Description of Product'},
     {name: 'slug', type: 'slug', title: 'Product Slug', options: {source: 'name'}},
     {name: 'price', type: 'number', title: 'Price'},
+    {name: 'price_id', type: 'string', title: 'Stripe Price ID'},
     {
       name: 'category',
       type: 'reference',

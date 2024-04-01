@@ -12,7 +12,8 @@ async function getProducts() {
 		description,
 		"category":category->name,
 		name,
-	"id": _id
+	"id": _id,
+	price_id
 	}`;
 	const data = await sanityClient.fetch(query);
 	return data;
@@ -35,6 +36,7 @@ export default async function AllProducts() {
 						slug={product.slug}
 						category={product.category}
 						description={product.description}
+						price_id={product.price_id}
 					/>
 				))}
 			</div>

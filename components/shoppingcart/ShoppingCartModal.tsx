@@ -24,7 +24,20 @@ export function ShoppingCartModal() {
 		cartDetails,
 		removeItem,
 		totalPrice,
+		redirectToCheckout,
 	} = useShoppingCart();
+
+	async function handleCheckoutClick(event: any) {
+		event.preventDefault();
+		try {
+			const result = await redirectToCheckout();
+			if (result?.error) {
+				console.log(result.error);
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	}
 	return (
 		<Sheet open={shouldDisplayCart} onOpenChange={handleCartClick}>
 			<SheetContent className="sm:max-w-lg w-[90vw]">
@@ -108,7 +121,25 @@ export function ShoppingCartModal() {
 												: `$0`}
 										</p>
 									</div>
-									<Button className="w-full">Checkout</Button>
+									<p className="my-2">
+										Shipping and taxes are calculated at
+										checkout
+									</p>
+									<div className="flex flex-col gap-y-4">
+										<Button
+											className="w-full"
+											onClick={handleCheckoutClick}
+										>
+											Checkout
+										</Button>
+										<Button
+											className="w-full text-primary"
+											variant={"secondary"}
+											onClick={handleCartClick}
+										>
+											Continue Shopping
+										</Button>
+									</div>
 								</div>
 							</div>
 						)}

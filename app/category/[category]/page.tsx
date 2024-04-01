@@ -14,7 +14,8 @@ async function getCategorytData(category: string) {
       name,
       description,
       "slug":slug.current,
-      "category":category->name
+      "category":category->name,
+	  price_id
     }`;
 	const data = await sanityClient.fetch(query);
 	return data;
@@ -47,6 +48,7 @@ export default async function page({
 								slug={product.slug}
 								category={product.category}
 								description={product.description}
+								price_id={product.price_id}
 							/>
 						))}
 					</div>

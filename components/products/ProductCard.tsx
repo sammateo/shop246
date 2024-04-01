@@ -14,6 +14,7 @@ export default function ProductCard({
 	slug,
 	category,
 	description,
+	price_id,
 }: Product) {
 	return (
 		<div className="bg-secondary w-full sm:w-56 flex sm:flex-col items-center sm:items-start gap-5 px-4 py-4 rounded">
@@ -42,6 +43,7 @@ export default function ProductCard({
 					image={mainImage}
 					price={price}
 					currency="USD"
+					price_id={price_id}
 				/>
 			</div>
 		</div>

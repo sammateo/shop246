@@ -1,5 +1,6 @@
 import { sanityClient } from "@/app/lib/sanity";
 import AddToCart from "@/components/products/AddToCart";
+import CheckoutNow from "@/components/products/CheckoutNow";
 import ProductImages from "@/components/products/ProductImages";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Star, Truck } from "lucide-react";
@@ -20,7 +21,8 @@ async function getProductData(slug: string) {
         name,
         description,
         "slug":slug.current,
-        "category":category->name
+        "category":category->name,
+		price_id
     }`;
 	const data = await sanityClient.fetch(query);
 	return data;
@@ -62,8 +64,17 @@ export default async function page({ params }: { params: { slug: string } }) {
 								image={productData.images[0]}
 								price={productData.price}
 								currency="USD"
+								price_id={productData.price_id}
 							/>
-							<Button variant={"secondary"}>Checkout Now</Button>
+							<CheckoutNow
+								name={productData.name}
+								description={productData.description}
+								image={productData.images[0]}
+								price={productData.price}
+								currency="USD"
+								price_id={productData.price_id}
+							/>
+							{/* <Button variant={"secondary"}>Checkout Now</Button> */}
 						</div>
 						<div>
 							<p className="my-10 tracking-wide text-base">

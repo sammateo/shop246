@@ -24,6 +24,7 @@ declare global {
 		images?: any;
 		slug: string;
 		category: string;
+		price_id: string;
 	}
 
 	interface productImage {
