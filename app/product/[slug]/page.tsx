@@ -1,4 +1,5 @@
 import { sanityClient } from "@/app/lib/sanity";
+import AddToCart from "@/components/products/AddToCart";
 import ProductImages from "@/components/products/ProductImages";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Star, Truck } from "lucide-react";
@@ -32,11 +33,11 @@ export default async function page({ params }: { params: { slug: string } }) {
 				<div className="px-4 md:px-20 grid md:grid-cols-2 gap-4">
 					<ProductImages images={productData.images} />
 					<div className="">
-						<p>{productData?.category}</p>
-						<p className="text-2xl font-bold">
+						<p className="my-2">{productData?.category}</p>
+						<p className="text-2xl font-bold my-2">
 							{productData?.name}
 						</p>
-						<div className="flex gap-x-4 items-center mb-6">
+						<div className="flex gap-x-4 items-center mt-2 mb-6">
 							<Button className="flex gap-2 text-primary-foreground">
 								<span>4.0</span>
 								<Star className="h-5 w-5" />
@@ -54,11 +55,17 @@ export default async function page({ params }: { params: { slug: string } }) {
 							<p className="text-sm">2-4 Day Shipping</p>
 						</div>
 						<div className="flex gap-2 my-2">
-							<Button>Add To Bag</Button>
+							<AddToCart
+								name={productData.name}
+								description={productData.description}
+								image={productData.images[0]}
+								price={productData.price}
+								currency="USD"
+							/>
 							<Button variant={"secondary"}>Checkout Now</Button>
 						</div>
 						<div>
-							<p className="my-12 tracking-wide text-base">
+							<p className="my-10 tracking-wide text-base">
 								{productData?.description}
 							</p>
 						</div>

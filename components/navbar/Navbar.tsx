@@ -9,15 +9,18 @@ import {
 	TooltipProvider,
 	TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { ShoppingCartModal } from "../shoppingcart/ShoppingCartModal";
+import { useShoppingCart } from "use-shopping-cart";
 
 const links = [
 	{ name: "Home", href: "/" },
-	{ name: "Storage", href: "/storage" },
-	{ name: "Cables", href: "/cables" },
+	{ name: "Storage", href: "/category/storage" },
+	{ name: "Cables", href: "/category/cables" },
 ];
 
 export default function Navbar() {
 	const pathname = usePathname();
+	const { handleCartClick } = useShoppingCart();
 	return (
 		<div className="flex items-center justify-between py-2 px-4 md:px-20">
 			<Link href="/">
@@ -42,7 +45,10 @@ export default function Navbar() {
 				<TooltipProvider>
 					<Tooltip>
 						<TooltipTrigger>
-							<ShoppingBag className="text-primary cursor-pointer" />
+							<ShoppingBag
+								className="text-primary cursor-pointer"
+								onClick={() => handleCartClick()}
+							/>
 						</TooltipTrigger>
 						<TooltipContent>
 							<p>Cart</p>
@@ -61,6 +67,8 @@ export default function Navbar() {
 					</Tooltip>
 				</TooltipProvider>
 			</div>
+
+			<ShoppingCartModal />
 		</div>
 	);
 }
