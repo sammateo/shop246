@@ -16,7 +16,6 @@ async function getCategorytData(category: string) {
       "category":category->name
     }`;
 	const data = await sanityClient.fetch(query);
-	console.log(category);
 	return data;
 }
 export default async function page({

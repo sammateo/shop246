@@ -2,7 +2,7 @@
 import { Menu, ShoppingBag } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React from "react";
+import React, { useState } from "react";
 import {
 	Tooltip,
 	TooltipContent,
@@ -11,8 +11,12 @@ import {
 } from "@/components/ui/tooltip";
 import { ShoppingCartModal } from "../shoppingcart/ShoppingCartModal";
 import { useShoppingCart } from "use-shopping-cart";
-
-const links = [
+import { MobileNavbar } from "./MobileNavbar";
+export interface navLink {
+	name: string;
+	href: string;
+}
+const links: navLink[] = [
 	{ name: "Home", href: "/" },
 	{ name: "Storage", href: "/category/storage" },
 	{ name: "Cables", href: "/category/cables" },
@@ -21,6 +25,7 @@ const links = [
 export default function Navbar() {
 	const pathname = usePathname();
 	const { handleCartClick } = useShoppingCart();
+	const [openNavbar, setOpenNavBar] = useState(false);
 	return (
 		<div className="flex items-center justify-between py-2 px-4 md:px-20">
 			<Link href="/">
@@ -59,7 +64,10 @@ export default function Navbar() {
 				<TooltipProvider>
 					<Tooltip>
 						<TooltipTrigger>
-							<Menu className="text-primary cursor-pointer block md:hidden" />
+							<Menu
+								className="text-primary cursor-pointer block md:hidden"
+								onClick={() => setOpenNavBar(true)}
+							/>
 						</TooltipTrigger>
 						<TooltipContent>
 							<p>Menu</p>
@@ -69,6 +77,11 @@ export default function Navbar() {
 			</div>
 
 			<ShoppingCartModal />
+			<MobileNavbar
+				openNavbar={openNavbar}
+				setOpenNavBar={setOpenNavBar}
+				links={links}
+			/>
 		</div>
 	);
 }
