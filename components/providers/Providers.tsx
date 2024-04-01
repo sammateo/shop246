@@ -8,8 +8,8 @@ export default function CartProvider({ children }: { children: ReactNode }) {
 			mode="payment"
 			cartMode="client-only"
 			stripe={process.env.NEXT_PUBLIC_STRIPE_KEY!}
-			successUrl="http://localhost:3000/checkout/success"
-			cancelUrl="http://localhost:3000/checkout/error"
+			successUrl={`${process.env.NEXT_PUBLIC_BASE_URL}/checkout/success`}
+			cancelUrl={`${process.env.NEXT_PUBLIC_BASE_URL}/checkout/error`}
 			currency="USD"
 			billingAddressCollection={true}
 			shouldPersist={true}
