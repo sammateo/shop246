@@ -22,7 +22,7 @@ export default function ProductImages({ images }: iAppProps) {
 							<CarouselItem key={image.asset._ref} className="">
 								<Image
 									// key={image._key}
-									className="w-full rounded object-contain object-center bg-primary-foreground"
+									className="w-full h-96 rounded object-contain object-center bg-primary-foreground"
 									src={urlFor(image.asset._ref).url()}
 									alt={"test"}
 									width={500}
