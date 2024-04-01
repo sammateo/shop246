@@ -14,7 +14,7 @@ interface iAppProps {
 }
 export default function ProductImages({ images }: iAppProps) {
 	return (
-		<div className="w-full md:w-1/2 ">
+		<div className="w-full">
 			<Carousel>
 				<CarouselContent className="">
 					{images.map((image: productImage) => {
