@@ -18,7 +18,7 @@ export function ThemeToggle() {
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>
-				<div className="text-primary bg-transparent hover:bg-transparent p-0 m-0 flex items-center">
+				<div className="text-primary bg-transparent hover:bg-transparent p-0 m-0 flex items-center cursor-pointer">
 					<Sun className="h-[1.2rem] w-[1.2rem] rotate-0 block transition-all dark:-rotate-90 dark:hidden" />
 					<Moon className="h-[1.2rem] w-[1.2rem] rotate-90 hidden transition-all dark:rotate-0 dark:block" />
 					<span className="sr-only">Toggle theme</span>

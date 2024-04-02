@@ -61,6 +61,7 @@ export default function Navbar() {
 						</TooltipContent>
 					</Tooltip>
 				</TooltipProvider>
+				<ThemeToggle />
 
 				<TooltipProvider>
 					<Tooltip>
@@ -75,18 +76,6 @@ export default function Navbar() {
 						</TooltipContent>
 					</Tooltip>
 				</TooltipProvider>
-
-				<TooltipProvider>
-					<Tooltip>
-						<TooltipTrigger>
-							<ThemeToggle />
-						</TooltipTrigger>
-						<TooltipContent>
-							<p>Theme</p>
-						</TooltipContent>
-					</Tooltip>
-				</TooltipProvider>
-				{/* <ThemeToggle /> */}
 			</div>
 
 			<ShoppingCartModal />
