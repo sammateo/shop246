@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
 import CartProvider from "@/components/providers/Providers";
-
+import { Analytics } from "@vercel/analytics/react";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -25,6 +25,7 @@ export default function RootLayout({
 				<CartProvider>
 					<Navbar />
 					{children}
+					<Analytics />
 				</CartProvider>
 			</body>
 		</html>
