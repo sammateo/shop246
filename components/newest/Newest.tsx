@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 async function getNewest() {
-	const query = `*[_type=='product'] | order(_createdAt asc)[0...5]
+	const query = `*[_type=='product'] | order(_createdAt desc)[0...5]
 	{
 	  	'slug':slug.current,
 		"mainImage":mainImage.asset._ref,

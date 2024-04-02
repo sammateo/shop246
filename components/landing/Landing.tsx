@@ -14,7 +14,7 @@ export default async function Landing() {
 				<h1 className="text-4xl font-bold">
 					Welcome to Shop<span className="text-primary">246</span>
 				</h1>
-				<p className="leading-relaxed text-gray-600 text-lg">
+				<p className="leading-relaxed text-secondary-foreground text-lg">
 					We provide local products for all your{" "}
 					<code className="text-primary">tech</code> needs.
 				</p>

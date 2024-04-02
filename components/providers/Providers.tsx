@@ -1,7 +1,8 @@
 "use client";
 import { ReactNode } from "react";
 import { CartProvider as USCProvider } from "use-shopping-cart";
-
+import { ThemeProvider as NextThemesProvider } from "next-themes";
+import { type ThemeProviderProps } from "next-themes/dist/types";
 export default function CartProvider({ children }: { children: ReactNode }) {
 	return (
 		<USCProvider
@@ -18,4 +19,7 @@ export default function CartProvider({ children }: { children: ReactNode }) {
 			{children}
 		</USCProvider>
 	);
+}
+export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
+	return <NextThemesProvider {...props}>{children}</NextThemesProvider>;
 }

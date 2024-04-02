@@ -12,6 +12,7 @@ import {
 import { ShoppingCartModal } from "../shoppingcart/ShoppingCartModal";
 import { useShoppingCart } from "use-shopping-cart";
 import { MobileNavbar } from "./MobileNavbar";
+import { ThemeToggle } from "./ThemeToggle";
 export interface navLink {
 	name: string;
 	href: string;
@@ -74,6 +75,18 @@ export default function Navbar() {
 						</TooltipContent>
 					</Tooltip>
 				</TooltipProvider>
+
+				<TooltipProvider>
+					<Tooltip>
+						<TooltipTrigger>
+							<ThemeToggle />
+						</TooltipTrigger>
+						<TooltipContent>
+							<p>Theme</p>
+						</TooltipContent>
+					</Tooltip>
+				</TooltipProvider>
+				{/* <ThemeToggle /> */}
 			</div>
 
 			<ShoppingCartModal />

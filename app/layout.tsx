@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
-import CartProvider from "@/components/providers/Providers";
+import CartProvider, { ThemeProvider } from "@/components/providers/Providers";
 import { Analytics } from "@vercel/analytics/react";
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,11 +22,18 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className={inter.className}>
-				<CartProvider>
-					<Navbar />
-					{children}
-					<Analytics />
-				</CartProvider>
+				<ThemeProvider
+					attribute="class"
+					defaultTheme="system"
+					enableSystem
+					disableTransitionOnChange
+				>
+					<CartProvider>
+						<Navbar />
+						{children}
+						<Analytics />
+					</CartProvider>
+				</ThemeProvider>
 			</body>
 		</html>
 	);

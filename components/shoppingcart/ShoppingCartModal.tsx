@@ -61,7 +61,7 @@ export function ShoppingCartModal() {
 													key={entry.id}
 													className="py-6 overflow-hidden rounded-md"
 												>
-													<div className="flex items-start gap-x-2">
+													<div className="flex items-start gap-x-2 ">
 														<div className="h-24 w-24 flex-shrink-0">
 															<Image
 																src={
@@ -72,7 +72,7 @@ export function ShoppingCartModal() {
 																alt=""
 															/>
 														</div>
-														<div>
+														<div className=" flex-grow">
 															<div>
 																<p>
 																	{entry.name}
